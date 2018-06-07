@@ -13,6 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "defaults":{
+              "component": {
+                "flat": true,
+                "spec": false
+              }
+            },
             "outputPath": "dist/ngrx-workshop",
             "index": "src/index.html",
             "main": "src/main.ts",

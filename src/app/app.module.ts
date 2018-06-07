@@ -13,6 +13,6 @@ import {AuthModule} from './auth/auth.module';
     CoreModule,
     AuthModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
