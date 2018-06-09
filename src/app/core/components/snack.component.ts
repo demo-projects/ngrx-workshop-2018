@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-snackbar',
   template: `
-    <div id="snackbar" class="show">Some text some message..</div>`,
+    <div *ngFor="let note of notifications" id="snackbar" class="show">{{ note }}</div>`,
   styles: [`
     #snackbar {
       visibility: hidden;
@@ -51,5 +51,5 @@ import {Component} from '@angular/core';
 
 })
 export class SnackComponent {
-
+  @Input() notifications: string[];
 }
