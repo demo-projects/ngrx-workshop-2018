@@ -7,6 +7,7 @@ import {Authenticate} from '../models/user';
 import {AuthService} from '../services/auth.service';
 import {ShowNotification} from '../../core/actions/core.actions';
 import {of} from 'rxjs';
+import {debounceTime} from 'rxjs-compat/operator/debounceTime';
 
 @Injectable()
 export class AuthEffects {
