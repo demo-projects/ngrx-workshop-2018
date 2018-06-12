@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Authenticate} from '../models/user';
 
 @Component({
   selector: 'app-sign-in',
   template: `
       <div class="text-center">
         <div class="sign-in-container">
-          <form class="form-signin">
+          <form class="form-signin" (ngSubmit)="authSubmit.next(userAuth)">
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email"
+                   class="form-control"
+                   name="username"
+                   placeholder="Email address"
+                   [(ngModel)]="userAuth.username">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" placeholder="password" name="password" class="form-control" [(ngModel)]="userAuth.password">
             <div class="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
@@ -68,11 +73,13 @@ import { Component, OnInit } from '@angular/core';
     }
   `]
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent  {
 
-  constructor() { }
+  @Output() authSubmit = new EventEmitter<Authenticate>();
 
-  ngOnInit() {
-  }
+  public userAuth: Authenticate = {
+    username: '',
+    password: ''
+  };
 
 }

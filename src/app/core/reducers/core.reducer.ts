@@ -10,7 +10,7 @@ export interface State {
 // initiate the state
 export const initialState: State = {
   loading: false,
-  notifications: ['dont do it now!']
+  notifications: []
 };
 
 // create uiReducer
