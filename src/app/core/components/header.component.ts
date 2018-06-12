@@ -10,6 +10,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
           <a class="navbar-brand" href="#">My Movie Collection</a>
 
           <span class="navbar-text" (click)="logout.emit()">Logout</span>
+          <span class="navbar-text" (click)="find.emit()">Find</span>
+          <span class="navbar-text" (click)="collection.emit()">collection</span>
 
           <!-- Begin Search -->
           <form class="form-inline">
@@ -22,7 +24,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   `,
 })
 export class HeaderComponent  {
-
   @Output() logout = new EventEmitter();
-
+  @Output() find = new EventEmitter();
+  @Output() collection = new EventEmitter();
 }
