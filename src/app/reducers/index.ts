@@ -11,7 +11,3 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   ui: fromCore.uiReducer
 };
-
-
-// if there is any meta uiReducer, put it here
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];

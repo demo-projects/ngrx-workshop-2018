@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 import {routes} from './app.routes';
 import {AuthModule} from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import * as fromRoot from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {EffectsModule} from '@ngrx/effects';
@@ -17,7 +17,7 @@ import {EffectsModule} from '@ngrx/effects';
     RouterModule.forRoot(routes),
     CoreModule,
     AuthModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(fromRoot.reducers),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],

@@ -1,8 +1,5 @@
 import {Component} from '@angular/core';
 import {Authenticate} from '../models/user';
-import {Login} from '../actions/auth.actions';
-import {Store} from '@ngrx/store';
-import * as fromRoot from '../../reducers';
 
 @Component({
   selector: 'app-auth',
@@ -12,10 +9,11 @@ import * as fromRoot from '../../reducers';
 })
 export class AuthComponent {
 
-  constructor(private store: Store<fromRoot.State>) {}
+  // todo: inject store Store<fromRoot.state>
 
   login(userAuth: Authenticate) {
-    this.store.dispatch(new Login(userAuth));
+  //  todo: dispatch a login action
+    console.log(userAuth);
   }
 
 }
