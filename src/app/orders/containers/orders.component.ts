@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../reducers/index';
+import {AddOrder} from '../actions/order.actions';
+
 
 @Component({
   selector: 'app-orders',
@@ -15,8 +19,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent  {
 
+  constructor(private store: Store<fromRoot.State>) {}
+
   submitOrder(order) {
-    console.log(order);
+    this.store.dispatch(new AddOrder({order: {...order, id: new Date().getMilliseconds()}}));
   }
 
 }

@@ -1,12 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Order} from '../models/order';
+
 import {Movie} from '../../movies/models/movie';
+import {Order} from '../models/order.model';
 
 @Component({
   selector: 'app-order-form',
   template: `
     <h2>Create new order</h2>
-    <form (ngSubmit)="submitOrder.emit(order); order = {address: null, phone: null, movieTitle: null}">
+    <form (ngSubmit)="submitOrder.emit(order); order = {id: null, address: null, phone: null, movieTitle: null}">
       <div class="form-group">
         <label>Address</label>
         <input type="text" class="form-control"  name="address" [(ngModel)]="order.address" placeholder="Full address...">
@@ -34,8 +35,9 @@ export class OrderFormComponent {
   @Output() submitOrder = new EventEmitter<Order>();
 
   public order: Order = {
-    address: null,
+    id: null,
     movieTitle: null,
+    address: null,
     phone: null
   };
 
