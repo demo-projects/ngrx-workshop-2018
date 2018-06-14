@@ -10,38 +10,11 @@ import {MovieCollectionActionTypes} from '../actions/movie-collection.actions';
 @Injectable()
 export class MoviesEffects {
 
-  @Effect()
-  effect$ = this.actions$.pipe(
-    ofType(MoviesActionTypes.FindMovies),
-    map( (action: MoviesActions) => action.payload),
-    switchMap( query => {
-      return this.movies
-        .findMoviesByTitle(query).pipe(
-          map((movies) => new FindMoviesSuccess(movies)),
-          catchError(err => of(new FindMoviesError(err)))
-        );
-    })
-  );
+  // todo: if type MoviesActionTypes.FindMovies
+  // get movies from server
 
-  @Effect()
-  movieInfo$ = this.actions$.pipe(
-    ofType(MoviesActionTypes.GetMovieInfo),
-    map( (action: MoviesActions) => action.payload),
-    switchMap( id => {
-      return this.movies
-        .findMoviesById(id).pipe(
-          map((movie) => new GetMovieInfoSuccess(movie)),
-          tap( () => this.router.navigateByUrl('movies/${id}')),
-          catchError(err => of(new FindMoviesError(err)))
-        );
-    })
-  );
-
-  @Effect({ dispatch: false })
-  addCollection$ = this.actions$.pipe(
-    ofType(MovieCollectionActionTypes.AddMovieToCollection),
-    tap( () => this.router.navigateByUrl('movies'))
-  );
+  // todo: if type MoviesActionTypes.GetMovieInfo
+  // find movie by id
 
   constructor(private actions$: Actions, private movies: MovieFinderService, private router: Router) {}
 }
