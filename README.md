@@ -1,5 +1,7 @@
 # Instructions
 
+CHECKOUT: start_auth
+
 don't forget to tun npm install!!
 
 1. init feature state:
