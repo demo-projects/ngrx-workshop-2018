@@ -8,5 +8,11 @@ export const routes: Routes = [
     path: 'movies',
     loadChildren: './movies/movies.module#MoviesModule',
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'orders',
+    loadChildren: './orders/orders.module#OrdersModule',
+    canActivate: [AuthGuard]
   }
+
 ];

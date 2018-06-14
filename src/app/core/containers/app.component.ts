@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-root',
   template: `
-    <app-header *ngIf="loggedIn | async" (logout)="logout()" (find)="find()" (collection)="viewCollection()"></app-header>
+    <app-header *ngIf="loggedIn | async" (logout)="logout()" (find)="find()" (collection)="viewCollection()"
+                (orders)="viewOrders()"></app-header>
 
     <main class="container">
       <router-outlet></router-outlet>
@@ -45,6 +46,10 @@ export class AppComponent {
 
   viewCollection() {
     this.router.navigate(['movies']);
+  }
+
+  viewOrders() {
+    this.router.navigate(['orders']);
   }
 
 }
