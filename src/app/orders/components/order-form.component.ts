@@ -34,7 +34,7 @@ export class OrderFormComponent {
   @Input() movies: Movie[];
   @Output() submitOrder = new EventEmitter<Order>();
 
-  public order: Order = {
+  public order = {
     id: null,
     movieTitle: null,
     address: null,
